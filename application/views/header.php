@@ -10,7 +10,7 @@
 <body>
 	<div id="header">
 		<img src="<?php echo base_url();?>assets/images/new_logo.png" style="padding: 8px;"/>
-		logo and banner here
+		
 	</div>
 
 
