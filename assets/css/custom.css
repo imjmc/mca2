@@ -1,0 +1,39 @@
+.lside{
+	width: 25%;
+	float: left;
+
+}
+.mside{
+	width: 74%;
+	float: left;
+	background-color: hsl(0,0%,90%);
+	padding: 5px;
+}
+.res_head{
+	text-align: center;
+}
+.res_list{
+	background-color: #fff;
+	border: 1px solid hsl(0,0%,100%);
+	min-height: 100px;
+	margin: 10px;
+	padding: 5px;
+}
+.res_name{
+	float: left;
+	font-size: 25px;
+	font-weight: bold;
+	border-right: 1px solid gray;
+	padding: 5px;
+}
+
+.res_inv{
+	float: left;
+	font-size: 25px;
+	font-weight: bold;
+	padding: 5px;
+}
+.cont{
+	min-height: 300px;
+	float: left;
+}
