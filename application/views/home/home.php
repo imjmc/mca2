@@ -40,7 +40,7 @@
 					<a href="#">
 						<div id="carousel-life">
 
-							<i class="fa fa-child"></i>
+							<i class="fa fa-child"></i><br>
 							Life
 
 						</div>
