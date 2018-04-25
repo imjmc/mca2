@@ -13,11 +13,13 @@
 	text-align: center;
 }
 .res_list{
-	background-color: #fff;
+	background-color: #f3992e;
 	border: 1px solid hsl(0,0%,100%);
 	min-height: 100px;
 	margin: 10px;
 	padding: 5px;
+	text-align: center;
+	color:#fff;
 }
 .res_name{
 	float: left;
@@ -32,41 +34,90 @@
 	font-size: 25px;
 	font-weight: bold;
 	padding: 5px;
+	
 }
+
 .cont{
-	min-height: 300px;
+	
 	float: left;
 }
 #carousel{
 	width:100%;
 	margin-bottom: 40px;
+	margin-left:50px;
 }
 .carousel1{
-	width:32.5%;
+	width:33%;
 	float:left;
 	text-align: center;
-	margin-left:10px;
+	margin-left:2px;
 }
-#carousel-health, #carousel-life{
-	float: left;
-}
+
 
 
 #carousel-health, #carousel-life, #carousel-vehicle{
 	
-	width: 250px;
-	height: 250px;
+	width: 245px;
+	height: 245px;
 	background-color: #f3992e;
 	border: 1px solid #f3992e;
-	margin: 0 auto;
+	
 	color:#fff;
 	border-radius: 50% ;
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
 }
-#carousel-health:hover,#carousel-life:hover, #carousel-vehicle:hover{
-	
-	width: 254px;
-	height: 254px;
+
+#iconlink{
+	color: #000 !important;
 }
+.bg-secondary{
+	background-color: #fff !important;
+}
+.bg-primary{
+	background-color: #fff !important;
+}
+.panel-title{
+	padding-top:30px;
+}
+
+
+
+/* Popup box BEGIN */
+.hover_bkgr_fricc{
+    background:rgba(0,0,0,.4);
+    cursor:pointer;
+    display:none;
+    height:100%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:100%;
+    z-index:10000;
+}
+.hover_bkgr_fricc .helper{
+    display:inline-block;
+    height:100%;
+    vertical-align:middle;
+}
+.hover_bkgr_fricc > div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    min-height: 100px;
+    vertical-align: middle;
+    
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+.popupCloseButton {
+   
+}
+.popupCloseButton:hover {
+    
+}
+
+/* Popup box BEGIN */

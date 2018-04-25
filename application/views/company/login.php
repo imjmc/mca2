@@ -3,10 +3,10 @@
 
 <div class="container">
 <div class="row">
-  <div class="col-md-8 col-md-offset-4">
+  <div class="col-md-4 col-md-offset-4">
     <div class="login-panel panel panel-success">
       <div class="panel-heading">
-          <h3 class="panel-title">Login</h3>
+          <h3 class="panel-title">Company Login</h3>
       </div>
       <?php
         $success_msg= $this->session->flashdata('success_msg');

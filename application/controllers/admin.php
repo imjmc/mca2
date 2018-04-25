@@ -1,20 +1,19 @@
 <?php
-
 class Admin extends CI_Controller {
 
   public function __construct(){
     parent::__construct();
-  	$this->load->helper('url');
-  	$this->load->model('Admin_model');
+    $this->load->helper('url');
+    $this->load->model('Admin_model');
   }
 
   public function index()
   {
-    $data = [];
+    $data['types'] = 'Admin';
     $this->loadView('login', $data);
   }
 
-  public function register(){
+   public function register(){
     $admin=array(
       'email'=>$this->input->post('email'),
       'password'=>md5($this->input->post('password')),
@@ -25,7 +24,7 @@ class Admin extends CI_Controller {
     if($email_check){
       $this->Admin_model->register_admin($admin);
       $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
-      redirect('admin/login');
+      redirect('admin');
     }
     else{
       $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
@@ -45,22 +44,42 @@ class Admin extends CI_Controller {
     );
     $data=$this->Admin_model->login_admin($admin_login['email'],$admin_login['password']);
 
-    if($data)
+    if($data['id'])
     {
       $this->session->set_userdata('admin_id',$data['id']);
-      redirect(base_url() . 'company/list', 'refresh');
+
+      if($data['type']=='admin'){
+        redirect(base_url() . 'Admin/view_orders');
+      }
+      if( $this->session->userdata('policy_id')){
+        redirect(base_url() . 'Form/orderreceived/' . $this->session->userdata('policy_id') , 'refresh');
+      }
+      else
+      {
+      redirect(base_url() , 'refresh');
+    }
     }
     else{
+      
       $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
-      redirect(base_url() . 'admin/login', 'refresh');
+      redirect(base_url() . 'Admin', 'refresh');
 
     }
   }
 
+  public function view_orders(){
+
+        if (!$this->session->userdata('admin_id')) {
+            redirect(base_url().'Admin', 'refresh');
+        }
+
+        $data['order_details'] = $this->Admin_model->list_orders();
+        $this->loadView('vieworder', $data);
+  }
   public function profile() {
         $data['admin_id'] = $this->session->userdata('admin_id');
         if (!$this->session->userdata('admin_id')) {
-            redirect(base_url().'admin', 'refresh');
+            redirect(base_url().'Admin', 'refresh');
         }
 
         $data['admin_details'] = $this->Admin_model->list_admin($data['admin_id']);
@@ -70,13 +89,13 @@ class Admin extends CI_Controller {
 
   public function admin_logout(){
     $this->session->sess_destroy();
-    redirect(base_url().'admin', 'refresh');
+    redirect(base_url(), 'refresh');
   }
 
   public function loadView($page_name, $data) {
-      $this->load->view('home/template/header');
-      $this->load->view('admin/' . $page_name, $data);
-      $this->load->view('home/template/footer');
+      $this->load->view('template/header');
+      $this->load->view('user/' . $page_name, $data);
+      $this->load->view('template/footer');
   }
 }
 ?>

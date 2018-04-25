@@ -1,5 +1,5 @@
 <?php
-class home extends CI_controller{
+class Home extends CI_controller{
 	
 
 	    public function __construct() {
@@ -9,12 +9,17 @@ class home extends CI_controller{
     }
 
     public function index() {
-        $this->loadView('home');
+        $data['types']=$this->uri->segment(4);
+        $this->loadView('home',$data);
+       // $this->loadView('compareForm');
     }
 
-    public function loadView($page_name) {
-        $this->load->view('home/template/header');
-        $this->load->view('home/' . $page_name);
-        $this->load->view('home/template/footer');
+    public function loadView($page_name,$data) {
+        $this->load->view('template/header');
+        $this->load->view($page_name,$data);
+        
+            $this->load->view('policy/compareForm');
+        
+        $this->load->view('template/footer');
     }
 }

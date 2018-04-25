@@ -10,17 +10,26 @@ class Company extends CI_Controller {
 
     public function index() {
         $data = [];
-        $this->loadView('login', $data);
+        if($this->session->userdata('company_id')){
+            redirect(base_url() . 'policy/policy_list');
+        }
+        else
+        {
+            $this->loadView('login', $data);
+        
+        }
     }
 
     public function register_company() {
 
         $company = array(
-            'company_name' => $this->input->post('company_name'),
-            'company_email' => $this->input->post('company_email'),
-            'company_password' => md5($this->input->post('company_password')),
-            'company_address' => $this->input->post('company_address'),
-            'company_phone' => $this->input->post('company_phone')
+            'name' => $this->input->post('company_name'),
+            'address' => $this->input->post('company_address'),
+            'phone' => $this->input->post('company_phone'),
+            'fax' => $this->input->post('company_fax'),
+            'email' => $this->input->post('company_email'),
+            'password' => md5($this->input->post('company_password')),
+            'url' => $this->input->post('company_url')
         );
 
         $email_check = $this->Company_model->email_check($company['company_email']);
@@ -77,13 +86,13 @@ class Company extends CI_Controller {
 
     public function company_logout() {
         $this->session->sess_destroy();
-        redirect(base_url().'company', 'refresh');
+        redirect(base_url(), 'refresh');
     }
 
     public function loadView($page_name, $data) {
-        $this->load->view('home/template/header');
+        $this->load->view('template/header');
         $this->load->view('company/' . $page_name, $data);
-        $this->load->view('home/template/footer');
+        $this->load->view('template/footer');
     }
 
 }

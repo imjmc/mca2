@@ -13,15 +13,17 @@ class Policy extends CI_Controller {
             redirect(base_url().'company', 'refresh');
         }
 
+
         $data = [];
+        $data['type_list'] = $this->Policy_model->get_all_types();
         $this->loadView('add', $data);
     }
 
     public function add() {
         $policy = array(
             'name' => $this->input->post('name'),
-            'c_id' => $this->session->userdata('company_id'),
-            'type_id' => $this->input->post('type_id'),
+            'company_id' => $this->session->userdata('company_id'),
+            'policy_type_id' => $this->input->post('type_id'),
             //'c_id' => $this->input->post('c_id'),
             'inv_per_year' => $this->input->post('inv_per_year'),
             'term' => $this->input->post('term'),
@@ -52,9 +54,9 @@ class Policy extends CI_Controller {
     }
 
     public function loadView($page_name, $data) {
-        $this->load->view('home/template/header');
+        $this->load->view('template/header');
         $this->load->view('policy/' . $page_name, $data);
-        $this->load->view('home/template/footer');
+        $this->load->view('template/footer');
     }
 }
 ?>

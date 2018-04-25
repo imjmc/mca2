@@ -29,7 +29,13 @@
                                 <input class="form-control" placeholder="Address" name="company_address" type="text" required="true">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Phone No" name="company_phone" type="number" required="true">
+                                <input class="form-control" placeholder="Phone No" name="company_phone" type="tel" required="true">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Fax" name="company_fax" type="tel">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Url" name="company_url" type="url" required="true">
                             </div>
                             <input class="btn btn-lg btn-success btn-block" type="submit" value="Register" name="register" >
                         </fieldset>

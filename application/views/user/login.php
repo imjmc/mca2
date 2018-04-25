@@ -5,7 +5,15 @@
         <div class="col-md-4 col-md-offset-4">
           <div class="login-panel panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Login</h3>
+              <?php 
+
+                if(isset($types)){ ?> 
+                     <h3 class="panel-title">Admin Login</h3>
+                <?php 
+                } else{ ?>
+                      <h3 class="panel-title">User Login</h3>
+                <?php
+                } ?>
             </div>
             <?php
               $success_msg= $this->session->flashdata('success_msg');
@@ -28,7 +36,7 @@
               ?>
 
             <div class="panel-body">
-              <form role="form" method="post" action="<?php echo base_url('admin/detail'); ?>">
+              <form role="form" method="post" action="<?php echo base_url('Admin/detail'); ?>">
                 <fieldset>
                     <div class="form-group"  >
                         <input class="form-control" placeholder="E-mail" name="email" type="email" required="true" autofocus>
@@ -39,7 +47,7 @@
                     <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login">
                 </fieldset>
               </form>
-              <center><b>Not registered ?</b> <br><a href="<?php echo base_url('admin/register_view'); ?>">Register here</a></center><!--for centered text-->
+              <center><b>Not registered ?</b> <br><a href="<?php echo base_url('Admin/register_view'); ?>">Register here</a></center><!--for centered text-->
             </div>
           </div>
         </div>

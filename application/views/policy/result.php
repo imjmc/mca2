@@ -1,8 +1,11 @@
 
-</div>''
+<br><h2 class="res_head">Here are your suitable policies!</h2>
 <div class="mside">
-	<br />
-<h2 class="res_head">Here are your suitable policies!</h2>
+	Form required
+</div>
+
+<div class="rside">
+
 <br />
 <?php
 if(isset($search)){

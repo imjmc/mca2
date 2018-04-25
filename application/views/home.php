@@ -1,36 +1,107 @@
-<!DOCTYPE html>
-<html>
-	
-	
-	<body>
-		<div id="cont">
-			<div id="cont-health"><a href="<?php echo base_url();?>health/healthins"">Health </a></div>
-			<div id="cont-life">Life</div>
-			<div id="cont-vehicle">Vehicle</div>
-		</div>
-		
-		<div class="form-group">
+   <style type="text/css">
+   i.fa {
+  display: inline-block;
+  border-radius: 200px;
+  
+  padding: 0.5em 0.6em;
+  font-size: 100px;
 
-			<form id="form" method="post" action="<?php echo base_url();?>form/search">
+}</style>
+<?PHP
+if((!$this->session->userdata('returnuser'))){
+	?>
+    <script>
 
-				<label for="age">Age in year</label>
-                 	<input type="text" class="form-control" name="age">
-				
-				<label for="term">Term in year</label>
-					<input type="text" class="form-control" name="term">
-				
-				<label for="investment">Investment per year</label>
-					<input type="text" class="form-control" name="investment">
 
-				<button class="btn btn-primary btn-lg btn-block" type="submit">Compare</button>
+    $( document ).ready(function() {
+       
+       $('.hover_bkgr_fricc').show();
+   
+   
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+        $('html,body').animate({ scrollTop: 70 }, 'slow');
+        <?PHP
+			$this->session->set_userdata('returnuser','Yes');
+        ?>
+    });
+   });
+</script>
+<?PHP
+}
+?>
+<!--popuup box -->
 
+                	<div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+<h2>Access site as:</h2>
+        <div class="popupCloseButton"><a href="#"><h3>Visitor</h3></a></div>
+       	<a href="<?PHP echo base_url('admin');?>"><h3>Company</h3></a>
+    </div>
+</div>
+    <!-- popupbox end -->
+<header class="masthead bg-primary text-white text-center">
+</header>
+<br /><br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-md-offset-4">
+            <div class="login-panel panel panel-success">
+                
+                <div class="panel-body">
+
+		<div id="carousel">
+
+			<div class="carousel1">
+
+					<a href="#form">
+						<div id="carousel-health">
+
+							<i class="fa fa-stethoscope"></i>
+							<br /><br /><br />
+							<span id="iconlink">Health </span>
+
+						</div>
+					</a>
+						
+			</div>
+
+			<div class="carousel1">
+						
+					<a href="#form">
+						<div id="carousel-life">
+
+							<i class="fa fa-child"></i><br>
+							<br /><br />
+							<span id="iconlink">Life</span>
+
+						</div>
+					</a>
+
+			</div>
 			
-			</form>
+			<div class="carousel1">
+						
+					<a href="#form">
+						<div id="carousel-life">
+
+							<i class="fa fa-money"></i><br>
+							<br /><br />
+							<span id="iconlink">Investment</span>
+
+						</div>
+					</a>
+
+			</div>
+
 		</div>
 
+		<div style="clear:both;"></div>
+		<br /><br />
 		
+<br /><br /><br /><br />
 
-	</body>
 
-</html>
 
+		
