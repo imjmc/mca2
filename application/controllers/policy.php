@@ -53,6 +53,14 @@ class Policy extends CI_Controller {
         $this->loadView('list', $data);
     }
 
+    public function editPolicy(){
+        $data = [];
+        $id = $this->uri->segment('3');
+        $data['get_policy'] = $this->Policy_model->get_policy($id);
+        $data['type_list'] = $this->Policy_model->get_all_types();
+        $this->loadView('add', $data);
+    }
+
     public function loadView($page_name, $data) {
         $this->load->view('template/header');
         $this->load->view('policy/' . $page_name, $data);

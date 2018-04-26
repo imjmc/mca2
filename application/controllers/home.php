@@ -10,6 +10,7 @@ class Home extends CI_controller{
 
     public function index() {
         $data['types']=$this->uri->segment(4);
+        $data['type_list'] = $this->Policy_model->get_all_types();
         $this->loadView('home',$data);
        // $this->loadView('compareForm');
     }

@@ -37,7 +37,7 @@ if((!$this->session->userdata('returnuser'))){
     <div>
 <h2>Access site as:</h2>
         <div class="popupCloseButton"><a href="#"><h3>Visitor</h3></a></div>
-       	<a href="<?PHP echo base_url('admin');?>"><h3>Company</h3></a>
+       	<a href="<?PHP echo base_url('company');?>"><h3>Company</h3></a>
     </div>
 </div>
     <!-- popupbox end -->

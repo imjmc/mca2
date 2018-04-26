@@ -43,4 +43,16 @@ class Policy_model extends CI_model {
         }
     }
 
+    public function get_policy($id){
+        $this->db->select('*');
+        $this->db->from('policies');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+        if ($query) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -5,11 +5,10 @@ class Form extends CI_controller{
 		$age = (int)$this->input->post('age');
 		$term = (int)$this->input->post('term');
 		$inv = (int)$this->input->post('investment');
+        $ptype = $this->input->post('policy_type');
 
 		$this->load->model("Form_model");
-		$data['search'] = $this->Form_model->msearch($age, $term, $inv);
-
-		
+		$data['search'] = $this->Form_model->msearch($age, $term, $inv, $ptype);
 
 		$this->loadView('policy/result', $data,'policy/compareform');
 	}
