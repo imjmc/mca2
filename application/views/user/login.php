@@ -2,7 +2,7 @@
     </header>
     <div class="container">
       <div class="row">
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-4 offset-md-4">
           <div class="login-panel panel panel-success">
             <div class="panel-heading">
               <?php 
@@ -38,13 +38,15 @@
             <div class="panel-body">
               <form role="form" method="post" action="<?php echo base_url('Admin/detail'); ?>">
                 <fieldset>
-                    <div class="form-group"  >
-                        <input class="form-control" placeholder="E-mail" name="email" type="email" required="true" autofocus>
+                    <div class="form-group">
+                        <label for="age">Email</label>
+                        <input class="form-control" name="email" type="email" required="true" autofocus>
                     </div>
                     <div class="form-group">
-                        <input class="form-control" placeholder="Password" name="password" type="password" required="true">
+                        <label for="age">Password</label>
+                        <input class="form-control" name="password" type="password" required="true">
                     </div>
-                    <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login">
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="login" name="login">
                 </fieldset>
               </form>
               <center><b>Not registered ?</b> <br><a href="<?php echo base_url('Admin/register_view'); ?>">Register here</a></center><!--for centered text-->

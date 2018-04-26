@@ -38,12 +38,21 @@
             </li>
             <?PHP
              if(!$this->session->userdata('admin_id')){
+              if($this->session->userdata('company_id')){
+              ?>
+              <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url().'company/company_logout'; ?>">Logout</a>
+              </li>
+              <?php
+            }
+            else{
             ?>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="<?php echo base_url().'company'; ?>">Company Zone</a>
             </li>
 
             <?PHP
+            }
           }
             if(!$this->session->userdata('company_id')){
             if( $this->session->userdata('admin_id')){
