@@ -6,6 +6,7 @@
 
 			<label for="policy">Policy Type</label>
                	<select class="form-control" name="policy_type">
+               		<option value="0">All</option>
                		<?php
                		 	foreach($type_list as $row){
                     ?>

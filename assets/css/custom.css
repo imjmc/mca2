@@ -23,18 +23,21 @@
 }
 .res_name{
 	float: left;
-	font-size: 25px;
+	font-size: 20px;
 	font-weight: bold;
-	border-right: 1px solid gray;
+	
 	padding: 5px;
 }
 
 .res_inv{
 	float: left;
-	font-size: 25px;
-	font-weight: bold;
+	font-size:19px;
+	margin-left:50px;
 	padding: 5px;
 	
+}
+#res_return{
+	font-size:19px;
 }
 
 .cont{
@@ -120,4 +123,15 @@
     
 }
 
-/* Popup box BEGIN */
+#error_msg{
+	background-color: red;
+	color: white;
+	text-align: center;
+	margin: 15px;
+}
+#success_msg{
+	background-color: green;
+	color: white;
+	text-align: center;
+	margin: 15px;
+}
