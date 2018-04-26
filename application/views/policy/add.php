@@ -5,7 +5,11 @@
     <div class="col-md-8 col-md-offset-4">
         <div class="login-panel panel panel-success">
             <div class="panel-heading">
-                <h3 class="panel-title">Add Insurance Policy</h3>
+                <?php if(isset($get_policy)){ ?>
+                    <h3 class="panel-title">Edit Insurance Policy</h3>
+                <?php }else{ ?>
+                    <h3 class="panel-title">Add Insurance Policy</h3>
+                <?php } ?>
             </div>
             <div class="panel-body">
                 <?php
@@ -14,7 +18,7 @@
                     echo $error_msg;
                 }
                     if(isset($get_policy)){
-                         foreach($get_policy as $policy){
+                        foreach($get_policy as $policy){
                             $name = $policy->name;
                             $type_id = $policy->policy_type_id;
                             $investment = $policy->inv_per_year;
@@ -23,11 +27,10 @@
                             $min_age = $policy->min_age;
                             $max_age = $policy->max_age;
                             $id = $policy->id;
-                         }
+                            $description = $policy->description;
+                        }
                     }
-
                 ?>
-
 
                 <form role="form" method="post" action="<?php if(isset($get_policy)) echo base_url('policy/updatePolicy'); else echo base_url('policy/add'); ?>">
                     <fieldset>
@@ -36,8 +39,7 @@
                         </div>
                         <div class="form-group"> 
                             <label for ="type_id">Type: </label>
-
-                            <select name="type_id" placeholder="Type ID" >
+                            <select name="type_id" placeholder="Type ID" class="form-control">
                                 <?php
 
                                 foreach($type_list as $row){
@@ -45,8 +47,8 @@
                                 ?>
                                 <option <?php if(isset($type_id)){ if($type_id==$row->id){ echo ' Selected="Selected" ';} } ?> value="<?PHP echo $row->id;?>"><?PHP echo $row->name;?></option>
                                 <?php
-                            }
-                            ?>
+                                }
+                                ?>
                             </select>
                             
                         </div>
@@ -64,6 +66,9 @@
                         </div>
                         <div class="form-group">
                            <label for ="max_age">Maximum Age</label>  <input class="form-control" placeholder="Max. Age" name="max_age" required="true" value="<?php if(isset($max_age)) echo $max_age; ?>">
+                        </div>
+                        <div class="form-group">
+                           <label for ="description">Description</label> <textarea  class="form-control" placeholder="Add a little description about the policy" name="description" required="true"><?php if(isset($description)) echo $description; ?></textarea> 
                         </div>
                         <input type="hidden" name="id" required="true" value="<?php if(isset($id)) echo $id ?>">
                         <input class="btn btn-lg btn-success btn-block" type="submit" value="Save" name="register" >

@@ -29,13 +29,13 @@ class Policy extends CI_Controller {
             'term' => $this->input->post('term'),
             'expected_return' => $this->input->post('expected_return'),
             'min_age' => $this->input->post('min_age'),
-            'max_age' => $this->input->post('max_age'),
+            'description' => $this->input->post('description')
         );
 
         $name_check = $this->Policy_model->name_check($policy['name']);
         if ($name_check) {
             $this->Policy_model->insert_policy($policy);
-            $this->session->set_flashdata('success_msg', 'Policy added successfully');
+            $this->session->set_flashdata('success_msg', 'Policy added successfully.');
             redirect(base_url().'policy/policy_list', 'refresh');
         } else {
             $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
@@ -71,6 +71,7 @@ class Policy extends CI_Controller {
             'expected_return' => $this->input->post('expected_return'),
             'min_age' => $this->input->post('min_age'),
             'max_age' => $this->input->post('max_age'),
+            'description' => $this->input->post('description')
         );
 
         $updates = $this->Policy_model->update_policy($policy,$this->input->post('id'));
