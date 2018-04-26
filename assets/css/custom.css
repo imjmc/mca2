@@ -120,4 +120,15 @@
     
 }
 
-/* Popup box BEGIN */
+#error_msg{
+	background-color: red;
+	color: white;
+	text-align: center;
+	margin: 15px;
+}
+#success_msg{
+	background-color: green;
+	color: white;
+	text-align: center;
+	margin: 15px;
+}

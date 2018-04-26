@@ -4,6 +4,21 @@
     <div class="row">
         <div class="col-md-4">
             <h4 class="text-center">Policy List</h4>
+            <div id="error_msg">
+            <?php $error_msg = $this->session->flashdata('error_msg');
+                if ($error_msg) {
+                    echo $error_msg;
+                }
+                ?>
+            </div>
+            <div id="success_msg">
+            <?php
+                $success_msg = $this->session->flashdata('success_msg');
+                if ($success_msg) {
+                    echo $success_msg;
+                }
+            ?>
+            </div>
             <table class="table table-bordered table-striped">
                 <tr>
                     <th>Policy Name</th>
@@ -25,11 +40,12 @@
                         <td><?php echo $policy->max_age; ?></td>
                         <td>
                             <a href="<?php echo base_url();?>Policy/editPolicy/<?php echo $policy->id; ?>">
-                                <img src="<?php echo base_url()?>assets/images/edit.png" title="Edit"/> Edit <?php echo $policy->id; ?></a>
+                                <img src="<?php echo base_url()?>assets/images/edit.png" title="Edit"/> Edit
+                            </a>
                         </td>
                         <td>
-                            <a href="">
-                                <img src="<?php echo base_url()?>assets/images/delete.png" title="Delete"/>Delete <?php echo $policy->id; ?>
+                            <a href="<?php echo base_url();?>Policy/deletePolicy/<?php echo $policy->id; ?>" onclick="return confirm('Are you sure you want to delete this item?');">
+                                <img src="<?php echo base_url()?>assets/images/delete.png" title="Delete"/>Delete
                             </a>
                         </td>
                     </tr>

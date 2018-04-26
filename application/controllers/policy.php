@@ -61,6 +61,43 @@ class Policy extends CI_Controller {
         $this->loadView('add', $data);
     }
 
+    public function updatePolicy(){
+        $policy = array(
+            'name' => $this->input->post('name'),
+            'company_id' => $this->session->userdata('company_id'),
+            'policy_type_id' => $this->input->post('type_id'),
+            'inv_per_year' => $this->input->post('inv_per_year'),
+            'term' => $this->input->post('term'),
+            'expected_return' => $this->input->post('expected_return'),
+            'min_age' => $this->input->post('min_age'),
+            'max_age' => $this->input->post('max_age'),
+        );
+
+        $updates = $this->Policy_model->update_policy($policy,$this->input->post('id'));
+        
+        if ($updates) {
+            
+            $this->session->set_flashdata('success_msg', 'Policy updated successfully.');
+            redirect(base_url().'policy/policy_list', 'refresh');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Error occured. Try again.');
+            redirect(base_url().'policy', 'refresh');
+        }
+    }
+
+    public function deletePolicy(){
+        $id = $this->uri->segment('3');
+        $deletestatus = $this->Policy_model->deletePolicy($id);
+        if ($deletestatus) {
+            $this->session->set_flashdata('success_msg', 'Policy deleted successfully.');
+            redirect(base_url().'policy/policy_list', 'refresh');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Error occured in deletion. Try again.');
+            redirect(base_url().'policy', 'refresh');
+        }
+
+    }
+
     public function loadView($page_name, $data) {
         $this->load->view('template/header');
         $this->load->view('policy/' . $page_name, $data);
