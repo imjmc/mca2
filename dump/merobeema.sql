@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 27, 2018 at 05:21 PM
+-- Generation Time: Apr 27, 2018 at 05:41 PM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -47,10 +47,10 @@ CREATE TABLE IF NOT EXISTS `companies` (
 --
 
 INSERT INTO `companies` (`id`, `name`, `address`, `phone`, `fax`, `email`, `password`, `url`, `logo`) VALUES
-(1, 'Premier Insurance', 'Kamaladi', '243242434', '23423442', 'info@premier.com.np', '098f6bcd4621d373cade4e832627b4f6', '0', ''),
-(2, 'NLG Insurance', 'Maharajgunj, Kathmandu', '234234234', '234233', 'info@nlg.com.np', '098f6bcd4621d373cade4e832627b4f6', '0', ''),
-(3, 'Siddhartha Insurance Pvt. Ltd.', 'Hattisar, Kathmandu, Nepal', '01-4482358', '01-4482357', 'info@siddhartha.com.np', '098f6bcd4621d373cade4e832627b4f6', 'http://siddhartha.com.np', ''),
-(5, 'Sagarmatha Insurance', 'Naxal, Kathmandu, Nepal', '01-4482358', '', 'sagarmatha@company.com', '098f6bcd4621d373cade4e832627b4f6', '0', 'ab224a349334d823ab40f6cf8083e16b.jpg');
+(1, 'Premier Insurance', 'Kamaladi', '243242434', '23423442', 'info@premier.com.np', '098f6bcd4621d373cade4e832627b4f6', 'http://premier-insurance.com.np', 'premier32343949334.png'),
+(2, 'NLG Insurance', 'Maharajgunj, Kathmandu', '234234234', '234233', 'info@nlg.com.np', '098f6bcd4621d373cade4e832627b4f6', 'http://www.nlg.com.np/', 'nlg40f6cf808.png'),
+(3, 'Siddhartha Insurance Pvt. Ltd.', 'Hattisar, Kathmandu, Nepal', '01-4482358', '01-4482357', 'info@siddhartha.com.np', '098f6bcd4621d373cade4e832627b4f6', 'http://siddhartha.com.np', 'siddhartha1450700469.png'),
+(5, 'Sagarmatha Insurance', 'Naxal, Kathmandu, Nepal', '01-4482358', '', 'sagarmatha@company.com', '098f6bcd4621d373cade4e832627b4f6', 'https://sagarmathainsurance.com.np/', 'ab224a349334d823ab40f6cf8083e16b.jpg');
 
 -- --------------------------------------------------------
 
