@@ -71,7 +71,9 @@
                             <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" name="register" >
                         </fieldset>
                     </form>
+                    <?php if(!isset($get_company)){?>
                     <center><b>Already registered ?</b> <br><a href="<?php echo base_url('company'); ?>">Login here</a></center>
+                    <?php } ?>
                 </div>
             </div>
         </div>

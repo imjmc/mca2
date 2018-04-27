@@ -3,8 +3,13 @@
 <div class="mside">
 	<br />
 <h2 class="res_head">Here are your suitable policies!</h2>
+
 <br />
-<?php
+
+	<?php
+if(count($search->result())==0) echo "No policy found";
+
+
 if(isset($search)){
 
 	foreach($search->result( ) as $row){

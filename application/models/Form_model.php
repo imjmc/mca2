@@ -2,7 +2,7 @@
 class Form_model extends CI_model{
 
 	function msearch($age, $term, $inv, $ptype){
-		if($age || $term || $inv || $ptype){
+		if($age && $term && $inv && $ptype){
 		
 		//$this->db->where($age "BETWEEN min_age AND max_age");
 		//$query = $this->db->get_where('policies', array('min_age'=>$age));
@@ -29,7 +29,13 @@ class Form_model extends CI_model{
 				$sql .= " OR (policy_type_id = $ptype)";
 			}
 			*/
-			$sql="SELECT policies.id,policies.name,policies.inv_per_year, policies.expected_return, policies.term, companies.name as cname FROM policies inner join companies on policies.company_id = companies.id WHERE (min_age <= $age AND max_age >=$age ) OR (term like $term) OR (inv_per_year like $inv) OR (policy_type_id = $ptype)";
+			if($ptype==0){
+				$sql="SELECT policies.id,policies.name,policies.inv_per_year, policies.expected_return, policies.term, companies.name as cname FROM policies inner join companies on policies.company_id = companies.id WHERE (min_age >= $age AND max_age <=$age ) or (term = $term) or (inv_per_year = $inv) ";
+			}
+			else
+			{
+			$sql="SELECT policies.id,policies.name,policies.inv_per_year, policies.expected_return, policies.term, companies.name as cname FROM policies inner join companies on policies.company_id = companies.id WHERE ((min_age >= $age AND max_age <=$age ) or (term = $term) or (inv_per_year = $inv)) and (policy_type_id = $ptype)";
+		}
 
 		}else{
 

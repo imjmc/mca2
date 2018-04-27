@@ -1,8 +1,6 @@
 
 <br><span class="res_head" style="font-size: 28px; margin-left: 150px;">Here are your suitable policies!</span>
 <a href="<?PHP echo base_url();?>"><span class="btn btn-sm btn-primary pull-right" style="margin-right: 10px;">Back <i class="fa fa-arrow-left"></i></span></a>
-
-
 <div class="tab">
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="historical">
@@ -16,7 +14,14 @@
                         <li>&nbsp;</li>
                     </ul>
                 </div>
+  
                 <div class="list-offer ng-scope">
+                    <?php
+                     if($search->num_rows()==0){
+                            echo '<h4 align="center">Sorry, no suitable policies found.</h4>';
+                     }
+                    ?>
+
                 <?php
                 if(isset($search)){
                     foreach($search->result( ) as $row){
@@ -29,7 +34,7 @@
                             <?php
                             }
                             else
-                                ?><img src="<?php echo base_url();?>assets/images/new_logo.png">
+                            ?><img src="<?php echo base_url();?>assets/images/new_logo.png">
                             <p class="ng-binding"><?php echo $row->cname; ?> - </p>
                             <p class="ng-binding"><?php echo $row->name; ?></p>
 
