@@ -1,6 +1,12 @@
 <p>&nbsp;</p>
 
-<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">All Available Policies!</span>
+<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">All Available 
+	<?php
+		if($type){
+			echo $type[0]->name;
+		}
+	?>
+&nbsp;Policies!</span>
 <a href="<?PHP echo base_url();?>"><span class="btn btn-sm btn-primary pull-right" style="margin-right: 10px;">Back <i class="fa fa-arrow-left"></i></span></a>
 
 
