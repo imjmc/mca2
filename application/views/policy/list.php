@@ -3,7 +3,6 @@
     <a class="btn btn-sm btn-primary pull-right" href="<?php echo base_url('policy');?>">Add Policy</a>
     <br/>
     <div class="row">
-
         <div class="col-md-12">
             <h4>Policy List</h4>
             <a href="<?php echo base_url();?>Company/register_view">Edit Company Profile</a>

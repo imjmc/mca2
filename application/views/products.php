@@ -23,7 +23,16 @@
                 ?>
                     <ul>
                         <li>
-                            <img src="<?php echo base_url();?>assets/images/new_logo.png" style="padding: 8px;"/>
+                            <?php
+                            if(($row->logo)){ ?>
+                            <img src="<?php echo base_url();?>user_data/company_logo/<?php echo $row->logo;?>">
+                            <?php
+                            }
+                            else{
+                            ?><img src="<?php echo base_url();?>assets/images/new_logo.png">
+                            <?php
+                            }
+                            ?>
                             <p class="ng-binding"><?PHP echo $row->companies_name; ?> - </p>
                             <p class="ng-binding"><?php echo $row->policies_name; ?></p>
 

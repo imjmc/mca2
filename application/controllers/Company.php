@@ -6,6 +6,7 @@ class Company extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Company_model');    
+        $this->load->model('Policy_model');   
     }
 
     public function index() {
@@ -22,6 +23,40 @@ class Company extends CI_Controller {
 
     public function register_company() {
 
+        
+            //File uploading starts here
+            $config['upload_path'] = './user_data/company_logo/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = '2048';
+            $config['encrypt_name'] = TRUE;
+            $new_name = time().rand(111111,999999);
+            $config['file_name'] = $new_name;
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload('company_logo')) {
+                $this->data['error'] = array('error' => $this->upload->display_errors('<div>', '</div>'));
+                //error
+            } else {
+
+                $upload_data = $this->upload->data();
+                $file_name = $upload_data['file_name'];
+
+            //resize:
+
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $upload_data['full_path'];
+            $config['maintain_ratio'] = TRUE;
+            $config['width']     = 100;
+            //$config['height']   = 50;
+
+            $this->load->library('image_lib', $config); 
+
+            $this->image_lib->resize();
+
+            }
+
+        //File upload ends here
+
         $company = array(
             'name' => $this->input->post('company_name'),
             'address' => $this->input->post('company_address'),
@@ -30,21 +65,9 @@ class Company extends CI_Controller {
             'email' => $this->input->post('company_email'),
             'password' => md5($this->input->post('company_password')),
             'url' => $this->input->post('company_url'),
-            'logo' => $this->input->post('company_logo')
+            'logo' => $file_name
 
         );
-
-        //Image upload starts
-        /*
-
-        $config['upload_path']          = './uploads/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
-
-        $this->load->library('upload', $config);
-        */
 
 
         $email_check = $this->Company_model->email_check($company['company_email']);
@@ -88,7 +111,8 @@ class Company extends CI_Controller {
             redirect(base_url().'company', 'refresh');
         }
 
-        $data = [];
+        $data['company_id'] = $this->session->userdata('company_id');
+        $data['policies'] = $this->Policy_model->list_company_policy($data['company_id']);
         $this->loadView('dashboard', $data);
     }
 
@@ -114,6 +138,36 @@ class Company extends CI_Controller {
     public function company_logout() {
         $this->session->sess_destroy();
         redirect(base_url(), 'refresh');
+    }
+
+    public function editCompany(){
+        $data = [];
+        $id = $this->session->userdata('company_id');
+        $data['get_company'] = $this->Company_model->get_company($id);
+        $this->loadView('register', $data);
+    }
+
+    public function updateCompany(){
+        $company = array(
+            'name' => $this->input->post('company_name'),
+            'address' => $this->input->post('company_address'),
+            'phone' => $this->input->post('company_phone'),
+            'fax' => $this->input->post('company_fax'),
+            'email' => $this->input->post('company_email'),
+            'url' => $this->input->post('company_url')
+        
+        );
+
+        $updates = $this->Company_model->update_company($company,$this->input->post('id'));
+        
+        if ($updates) {
+            
+            $this->session->set_flashdata('success_msg', 'Company Profile updated successfully.');
+            redirect(base_url().'Company/dashboard', 'refresh');
+        } else {
+            $this->session->set_flashdata('error_msg', 'Error occured. Try again.');
+            redirect(base_url().'Company/editCompany', 'refresh');
+        }
     }
 
     public function loadView($page_name, $data) {

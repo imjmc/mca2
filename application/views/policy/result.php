@@ -23,8 +23,14 @@
                 ?>
                     <ul>
                         <li>
-                            <img src="<?php echo base_url();?>assets/images/new_logo.png" style="padding: 8px;"/>
-                            <p class="ng-binding"><?PHP echo $row->cname; ?> - </p>
+                            <?php
+                            if(isset($row->logo)){ ?>
+                            <img src="<?php echo base_url();?>user_data/company_logo/<?php echo $row->logo;?>">
+                            <?php
+                            }
+                            else
+                                ?><img src="<?php echo base_url();?>assets/images/new_logo.png">
+                            <p class="ng-binding"><?php echo $row->cname; ?> - </p>
                             <p class="ng-binding"><?php echo $row->name; ?></p>
 
                         </li>
