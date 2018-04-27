@@ -68,4 +68,37 @@ class Policy_model extends CI_model {
 
     }
 
+    public function get_policy_by_type($id){
+        // $this->db->select('*');
+        // $this->db->from('policies');
+        // $this->db->where('policy_type_id',$id);
+
+
+        $this->db->select('policies.name AS policies_name,
+                          companies.name AS companies_name, policies.id, policies.inv_per_year, policies.term, policies.expected_return', 'policies.policy_type_id');
+        $this->db->from('policies');
+        $this->db->join('companies', 'companies.id = policies.company_id');
+        $this->db->where('policy_type_id',$id);
+
+
+        $query = $this->db->get();
+        if ($query) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function get_type($id){
+        $this->db->select('*');
+        $this->db->from('policy_type');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+        if ($query) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -98,6 +98,14 @@ class Policy extends CI_Controller {
         }
 
     }
+    public function policyType(){
+        $id = $this->uri->segment('3');
+        $data['products'] = $this->Policy_model->get_policy_by_type($id);
+        $data['type'] = $this->Policy_model->get_type($id);
+        $this->loadView('type_products', $data);
+        
+
+    }
 
     public function loadView($page_name, $data) {
         $this->load->view('template/header');

@@ -1,5 +1,12 @@
+<p>&nbsp;</p>
 
-<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">Here are your suitable policies!</span>
+<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">All Available 
+	<?php
+		if($type){
+			echo $type[0]->name;
+		}
+	?>
+&nbsp;Policies!</span>
 <a href="<?PHP echo base_url();?>"><span class="btn btn-sm btn-primary pull-right" style="margin-right: 10px;">Back <i class="fa fa-arrow-left"></i></span></a>
 
 
@@ -18,14 +25,13 @@
                 </div>
                 <div class="list-offer ng-scope">
                 <?php
-                if(isset($search)){
-                    foreach($search->result( ) as $row){
+                    foreach($products as $row){
                 ?>
                     <ul>
                         <li>
                             <img src="<?php echo base_url();?>assets/images/new_logo.png" style="padding: 8px;"/>
-                            <p class="ng-binding"><?PHP echo $row->cname; ?> - </p>
-                            <p class="ng-binding"><?php echo $row->name; ?></p>
+                            <p class="ng-binding"><?PHP echo $row->companies_name; ?> - </p>
+                            <p class="ng-binding"><?php echo $row->policies_name; ?></p>
 
                         </li>
                         <li class="growth">
@@ -62,7 +68,7 @@
                     </ul>
                 <?php
                 }
-                }
+
                 ?>
                 </div>
             </div>

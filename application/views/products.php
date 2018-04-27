@@ -1,6 +1,8 @@
 <p>&nbsp;</p>
 
-<p style="font-size: 30px;">All Available Policies</p>
+<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">All Available Policies!</span>
+<a href="<?PHP echo base_url();?>"><span class="btn btn-sm btn-primary pull-right" style="margin-right: 10px;">Back <i class="fa fa-arrow-left"></i></span></a>
+
 
 <div class="tab">
     <div class="tab-content">
@@ -21,7 +23,7 @@
                 ?>
                     <ul>
                         <li>
-                            <img ng-src="http://ebeema.com/ebeema/frontend/web/css/images/logo/nlic.png" alt="NLIC" src="http://ebeema.com/ebeema/frontend/web/css/images/logo/nlic.png">
+                            <img src="<?php echo base_url();?>assets/images/new_logo.png" style="padding: 8px;"/>
                             <p class="ng-binding"><?PHP echo $row->companies_name; ?> - </p>
                             <p class="ng-binding"><?php echo $row->policies_name; ?></p>
 

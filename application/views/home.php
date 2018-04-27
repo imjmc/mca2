@@ -55,7 +55,7 @@ if((!$this->session->userdata('returnuser'))){
 
 			<div class="carousel1">
 
-					<a href="#form">
+					<a href="<?php echo base_url(). "Policy/policyType/2";?>">
 						<div id="carousel-health">
 
 							<i class="fa fa-stethoscope"></i>
@@ -69,7 +69,7 @@ if((!$this->session->userdata('returnuser'))){
 
 			<div class="carousel1">
 						
-					<a href="#form">
+					<a href="<?php echo base_url(). "Policy/policyType/3";?>">
 						<div id="carousel-life">
 
 							<i class="fa fa-child"></i><br>
@@ -83,7 +83,7 @@ if((!$this->session->userdata('returnuser'))){
 			
 			<div class="carousel1">
 						
-					<a href="#form">
+					<a href="<?php echo base_url(). "Policy/policyType/1";?>">
 						<div id="carousel-life">
 
 							<i class="fa fa-money"></i><br>
