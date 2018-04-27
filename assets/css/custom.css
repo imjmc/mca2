@@ -75,6 +75,10 @@
 #iconlink{
 	color: #000 !important;
 }
+#iconlink:hover, #iconlink:active {
+  text-decoration: none !important;
+}
+
 .bg-secondary{
 	background-color: #fff !important;
 }
@@ -85,6 +89,17 @@
 	padding-top:30px;
 }
 
+.nav li a{
+  color: #000;
+}
+
+.nav li a:hover{
+  text-decoration: none;
+}
+
+.nav li .active{
+  text-decoration: underline;
+}
 
 
 /* Popup box BEGIN */

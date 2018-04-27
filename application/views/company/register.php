@@ -1,12 +1,27 @@
-<header class="masthead bg-primary text-white text-center">
-</header>
+<p>&nbsp;</p>
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="login-panel panel panel-success">
                 <div class="panel-heading">
                     <?php if(isset($get_company)){ ?>
-                    <h3 class="panel-title">Edit Company Profile</h3>
+                    <ul class="nav in pull-right" id="side-menu">
+                        <li>
+                            <a href="<?PHP echo base_url();?>Company/dashboard" class=""><i class="fa fa-briefcase fa-fw"></i> View Policies  </a>&nbsp;
+                        </li>|
+                        <!--
+                        <li>
+                            <a href="<?PHP echo base_url();?>" class="active"><i class="fa fa-list fa-fw"></i> Orders</a>
+                        </li>
+                        -->
+                        <li>
+                            <a href="<?PHP echo base_url();?>Company/editCompany" class="active"><i class="fa fa-user fa-fw"></i> Edit Profile</a>
+                        </li>
+                    
+                    <?php } ?>
+                    </ul>
+                    <?php if(isset($get_company)){ ?>
+                    <h4 class="">Edit Company Profile</h3>
                     <?php }else{ ?>
                     <h3 class="panel-title">Company Registration</h3>
                 <?php } ?>
