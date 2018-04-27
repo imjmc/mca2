@@ -66,4 +66,22 @@ class Company_model extends CI_model {
         }
     }
 
+    public function get_comapny($id){
+        $this->db->select('*');
+        $this->db->from('companies');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+        if ($query) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    public function update_company($company,$id) {
+        $this->db->where('id',$id);
+        $this->db->update('companies', $company);
+        return true;     
+    }
+
 }

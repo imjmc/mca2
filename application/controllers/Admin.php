@@ -62,7 +62,11 @@ class Admin extends CI_Controller {
     else{
       
       $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
-      redirect(base_url() . 'Admin', 'refresh');
+      if($data['type']=='admin'){
+        redirect(base_url() . 'Admin', 'refresh');
+      }else{
+        redirect(base_url() . 'User', 'refresh');
+      }
 
     }
   }
