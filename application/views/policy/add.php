@@ -2,7 +2,7 @@
 </header>
 <div class="container">
 <div class="row">
-    <div class="col-md-8 col-md-offset-4">
+    <div class="col-md-10 offset-md-1">
         <div class="login-panel panel panel-success">
             <div class="panel-heading">
                 <?php if(isset($get_policy)){ ?>
@@ -38,7 +38,7 @@
                            <label for ="name">Name of Policy</label> <input class="form-control" placeholder="Name" name="name" type="text" required="true" value="<?php if(isset($name)) echo $name; ?>" autofocus>
                         </div>
                         <div class="form-group"> 
-                            <label for ="type_id">Type: </label>
+                            <label for ="type_id">Type </label>
                             <select name="type_id" placeholder="Type ID" class="form-control">
                                 <?php
 
@@ -71,7 +71,7 @@
                            <label for ="description">Description</label> <textarea  class="form-control" placeholder="Add a little description about the policy" name="description" required="true"><?php if(isset($description)) echo $description; ?></textarea> 
                         </div>
                         <input type="hidden" name="id" required="true" value="<?php if(isset($id)) echo $id ?>">
-                        <input class="btn btn-lg btn-success btn-block" type="submit" value="Save" name="register" >
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Save" name="register" >
                     </fieldset>
                 </form>
 
