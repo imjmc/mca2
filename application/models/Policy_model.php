@@ -75,7 +75,7 @@ class Policy_model extends CI_model {
 
 
         $this->db->select('policies.name AS policies_name,
-                          companies.name AS companies_name, companies.logo as logo, policies.id, policies.inv_per_year, policies.term, policies.expected_return', 'policies.policy_type_id', );
+                          companies.name AS companies_name, companies.logo as logo, policies.id, policies.inv_per_year, policies.term, policies.expected_return', 'policies.policy_type_id');
         $this->db->from('policies');
         $this->db->join('companies', 'companies.id = policies.company_id');
         $this->db->where('policy_type_id',$id);
