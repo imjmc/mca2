@@ -1,12 +1,6 @@
 
 <br><h2 class="res_head">Here are your suitable policies!</h2>
 
-<!-- <div class="mside">
-    Form required
-</div>
-<div class="rside">
-<br /> -->
-
 <div class="tab">
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="historical">
