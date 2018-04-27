@@ -17,13 +17,13 @@
                	</select>
 
 			<label for="age">Age (in year)</label>
-               	<input type="text" class="form-control" name="age">
+               	<input type="number" class="form-control" name="age" required="required">
 			
 			<label for="term">Term (in year)</label>
-				<input type="text" class="form-control" name="term">
+				<input type="number" class="form-control" name="term" required="required" type="number">
 				
 			<label for="investment">Investment per year</label>
-				<input type="text" class="form-control" name="investment"><br />
+				<input type="number" class="form-control" name="investment" required="required" type="number"><br />
 						
 			<button class="btn btn-primary btn-lg btn-block" type="submit">Compare</button>
 
