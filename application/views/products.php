@@ -1,3 +1,4 @@
+<p>Products List</p>
 <?php 
 foreach ($products as $product){ 
 ?>
