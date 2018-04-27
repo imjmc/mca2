@@ -1,5 +1,7 @@
 
-<br><h2 class="res_head">Here are your suitable policies!</h2>
+<br><span class="res_head" style="font-size: 28px; margin-left: 150px;">Here are your suitable policies!</span>
+<a href="<?PHP echo base_url();?>"><span class="btn btn-sm btn-primary pull-right" style="margin-right: 10px;">Back <i class="fa fa-arrow-left"></i></span></a>
+
 
 <div class="tab">
     <div class="tab-content">

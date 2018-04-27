@@ -73,11 +73,23 @@ class Company extends CI_Controller {
         $data = $this->Company_model->login_company($company_login['company_email'], $company_login['company_password']);
         if ($data) {
             $this->session->set_userdata('company_id', $data['id']);
-            redirect(base_url() . 'policy/policy_list', 'refresh');
+            // redirect(base_url() . 'policy/policy_list', 'refresh');
+            redirect(base_url() . 'company/dashboard', 'refresh');
+
         } else {
             $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
            redirect(base_url() . 'company', 'refresh');
         }
+    }
+
+    public function dashboard(){
+        $data['company_id'] = $this->session->userdata('company_id');
+        if (!$this->session->userdata('company_id')) {
+            redirect(base_url().'company', 'refresh');
+        }
+
+        $data = [];
+        $this->loadView('dashboard', $data);
     }
 
     public function company_profile() {
