@@ -38,7 +38,7 @@
               <label for="age">Password</label>
               <input class="form-control" name="company_password" type="password" required="true">
             </div>
-            <input class="btn btn-lg btn-primary btn-block" type="submit" value="login" name="login" >
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login" >
           </fieldset>
         </form>
         <center><b>Not registered ?</b> <br><a href="<?php echo base_url('company/register_view'); ?>">Register here</a></center>

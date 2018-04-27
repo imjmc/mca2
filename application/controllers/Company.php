@@ -29,18 +29,33 @@ class Company extends CI_Controller {
             'fax' => $this->input->post('company_fax'),
             'email' => $this->input->post('company_email'),
             'password' => md5($this->input->post('company_password')),
-            'url' => $this->input->post('company_url')
+            'url' => $this->input->post('company_url'),
+            'logo' => $this->input->post('company_logo')
+
         );
+
+        //Image upload starts
+        /*
+
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+        */
+
 
         $email_check = $this->Company_model->email_check($company['company_email']);
 
         if ($email_check) {
             $this->Company_model->register_company($company);
-            $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
+            $this->session->set_flashdata('success_msg', 'Registered successfully. Now login to your account.');
             redirect('company');
         } else {
 
-            $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
+            $this->session->set_flashdata('error_msg', 'Error occured, Try again.');
             redirect('company');
         }
     }

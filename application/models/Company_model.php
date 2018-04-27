@@ -54,4 +54,16 @@ class Company_model extends CI_model {
         }
     }
 
+    public function get_company($id){
+        $this->db->select('*');
+        $this->db->from('companies');
+        $this->db->where('id',$id);
+        $query = $this->db->get();
+        if ($query) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }

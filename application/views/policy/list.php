@@ -4,6 +4,7 @@
     <div class="row">
         <div class="col-md-4">
             <h4 class="text-center">Policy List</h4>
+            <a href="<?php echo base_url();?>Company/register_view">Edit Company Profile</a>
             <div id="error_msg">
             <?php $error_msg = $this->session->flashdata('error_msg');
                 if ($error_msg) {

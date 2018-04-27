@@ -37,6 +37,7 @@ class Admin_model extends CI_model{
         $this->db->join('policies', 'orders.policy_id = policies.id');
         $this->db->join('users', 'orders.order_by = users.id');
         
+        
         $query = $this->db->get();
         if ($query) {
             return $query->result();
