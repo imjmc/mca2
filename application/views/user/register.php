@@ -5,7 +5,7 @@
           <div class="col-md-4 offset-md-4">
             <div class="login-panel panel panel-success">
               <div class="panel-heading">
-                  <h3 class="panel-title">Registration</h3>
+                  <h3 class="panel-title">New User Registration</h3>
               </div>
               <div class="panel-body">
 
@@ -16,7 +16,7 @@
                 }
                 ?>
 
-                <form role="form" method="post" action="<?php echo base_url('admin/register'); ?>">
+                <form role="form" method="post" action="<?php echo base_url('User/register'); ?>">
                   <fieldset>
                     <div class="form-group">
                       <label for="age">Email</label>
@@ -29,7 +29,7 @@
                     <input class="btn btn-lg btn-primary btn-block" type="submit" value="Register" name="register">
                   </fieldset>
                 </form>
-                <center><b>Already registered ?</b> <br><a href="<?php echo base_url('admin'); ?>">Login here</a></center>
+                <center><b>Already registered ?</b> <br><a href="<?php echo base_url('user'); ?>">Login here</a></center>
               </div>
             </div>
           </div>

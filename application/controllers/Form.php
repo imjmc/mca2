@@ -42,7 +42,7 @@ class Form extends CI_controller{
     else
     {
     	$this->session->set_userdata('policy_id',$this->uri->segment('3'));
-    		redirect(base_url() . "admin");
+    		redirect(base_url() . "user");
     }
     }
 }
